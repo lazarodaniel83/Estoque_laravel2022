@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 //use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB ;
-use estoque\Poduto;
+use app\Produto;
 use Request;
 
 class ProdutoController extends Controller
 {
     public function lista(){
        
-        $produtos = DB::select('select * from produtos');
+        $produtos = Produto::all();
         
-        return view('produto.listagem')->with('produtos',$produtos);
+        return view('produtos.listagem')->with('produtos',$produtos);
     }
 
     public function mostra($id){
@@ -50,7 +50,7 @@ class ProdutoController extends Controller
    }
 
    public function listaJson(){
-       $produtos = DB::select('select *from produtos');
+       $produtos = Produto::all('select *from produtos');
        
        return response()->json($produtos);
    }
