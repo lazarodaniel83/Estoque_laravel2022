@@ -28,3 +28,5 @@ Route::match(array('GET', 'POST'),
 'ProdutoController@adiciona');
 
 Route::get('produtos/json', 'ProdutoController@listaJson');
+
+Route::get('/produtos/remove/{id}','ProdutoController@remove');
